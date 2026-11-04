@@ -2533,6 +2533,77 @@ body:has(#p-ai.ph) .bcta{z-index:30}
 #p-ai.da .aida .bar g[clip-path]{animation:daBar 1.6s cubic-bezier(.65,0,.35,1) both!important;animation-delay:calc(1.7s + var(--i)*.14s)!important}
 #p-ai.da .aida .dl{animation:daFade .8s ease both!important;animation-delay:calc(1.2s + var(--i)*.14s)!important}
 #p-ai.da .aida .lg2{animation:daFade .8s ease both!important;animation-delay:calc(3.2s + var(--i)*.1s)!important}
+
+/* ===================== B v110 ===================== */
+/* Predicting future failures: el mòbil deixa de ser un iframe amb la demo d'eSAT i passa a ser
+   DOM de la pàgina — alerta predictiva → detall del diagnòstic, el mateix contingut que al vídeo.
+   Sense segon document, sense APPS[3] i sense sondeig entre marcs. */
+#p-ai .aiph-f{position:relative!important;width:364px!important;height:760px!important;margin:0 auto!important}
+.nxph{position:absolute;inset:0;border-radius:46px;background:#0b0c10;overflow:hidden;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.20),inset 0 0 0 7px #08090c,
+             0 0 0 1px rgba(255,255,255,.10),0 30px 70px rgba(0,0,0,.55),0 0 70px rgba(66,86,249,.26)}
+.nxph .scr{position:absolute;left:9px;top:9px;right:9px;bottom:9px;border-radius:38px;overflow:hidden;
+  background:radial-gradient(120% 70% at 50% 18%,#1e2f6e,#0a0c1c 70%)}
+.nxph .notch{position:absolute;left:50%;top:9px;translate:-50% 0;width:104px;height:21px;
+  border-radius:0 0 13px 13px;background:#08090c;z-index:8}
+.nxph .bar{position:absolute;left:50%;bottom:16px;translate:-50% 0;width:106px;height:4px;
+  border-radius:2px;background:rgba(255,255,255,.75);z-index:7}
+.nxph .hora{position:absolute;left:26px;top:20px;font-size:13px;font-weight:500;color:#fff;z-index:7}
+
+/* pantalla apagada fins que hi arriben les ones de la porta */
+.nxph .off{position:absolute;inset:0;background:#000;z-index:6;opacity:1;transition:opacity .5s ease}
+#p-ai.lit .nxph .off{opacity:0}
+
+/* targeta d'alerta */
+.nxph .alert{position:absolute;left:13px;right:13px;top:64px;z-index:5;padding:14px 15px 16px;
+  border-radius:20px;background:#fff;box-shadow:0 14px 34px rgba(0,0,0,.42);
+  opacity:0;transform:translateY(-26px);transition:opacity .4s ease,transform .62s cubic-bezier(.16,1,.3,1)}
+#p-ai.alr .nxph .alert{opacity:1;transform:none}
+#p-ai.alr .nxph .alert{animation:nxAlertGlow 2.4s ease-in-out .45s 2}
+@keyframes nxAlertGlow{0%,100%{box-shadow:0 14px 34px rgba(0,0,0,.42)}
+  50%{box-shadow:0 14px 34px rgba(0,0,0,.42),0 0 0 5px rgba(245,158,11,.20),0 0 28px 7px rgba(245,158,11,.42)}}
+.nxph .arow{display:flex;align-items:center;gap:9px}
+.nxph .atile{width:26px;height:26px;border-radius:7px;background:#4256F9;flex:none}
+.nxph .aname{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:#8a8a93;flex:1}
+.nxph .anow{font-size:10.5px;font-weight:400;color:#8a8a93}
+.nxph .apill{display:inline-block;margin:11px 0 0;padding:5px 11px;border-radius:11px;
+  background:#F59E0B;font-size:9.5px;font-weight:600;letter-spacing:.09em;color:#fff}
+.nxph .atit{margin:10px 0 0;font-size:17px;font-weight:600;line-height:1.2;color:#142457}
+.nxph .acos{margin:7px 0 0;font-size:12.5px;font-weight:400;line-height:1.42;color:#55555a}
+
+/* el toc simulat */
+.nxph .tapr{position:absolute;left:50%;top:150px;translate:-50% -50%;width:88px;height:88px;
+  border-radius:50%;background:rgba(20,36,87,.18);border:2px solid rgba(20,36,87,.34);
+  z-index:6;opacity:0;transform:translate(-50%,-50%) scale(1.5)}
+#p-ai.tp .nxph .tapr{animation:nxTap .8s cubic-bezier(.3,0,.3,1) 1}
+@keyframes nxTap{0%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}
+  38%{opacity:1;transform:translate(-50%,-50%) scale(.72)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}
+#p-ai.tp .nxph .alert{transform:scale(.965)}
+
+/* pantalla de detall */
+.nxph .det{position:absolute;inset:0;z-index:7;background:#fff;overflow:hidden;
+  transform:translateY(102%);transition:transform .66s cubic-bezier(.16,1,.3,1)}
+#p-ai.dg .nxph .det{transform:none}
+.nxph .det .ph{display:block;width:100%;height:126px;object-fit:cover;object-position:top}
+.nxph .det .card{position:absolute;left:0;right:0;top:104px;bottom:0;background:#fff;border-radius:18px 18px 0 0;padding:0 17px}
+.nxph .det .badge{display:inline-block;margin:19px 0 0;padding:5px 12px;border-radius:11px;
+  background:#34A853;font-size:10.5px;font-weight:600;color:#fff}
+.nxph .det h4{margin:13px 0 0;font-size:21px;font-weight:600;line-height:1.15;color:#142457}
+.nxph .det dl{margin:17px 0 0}
+.nxph .det dt{margin:17px 0 0;font-size:10.5px;font-weight:600;letter-spacing:.085em;color:#4256F9}
+.nxph .det dd{margin:5px 0 0;font-size:13px;font-weight:400;line-height:1.45;color:#212226}
+.nxph .det .foot{position:absolute;left:17px;right:17px;bottom:54px}
+.nxph .det .rule{margin:0 -17px 0;height:1px;background:#e0e2e8}
+.nxph .det .help{margin:19px 0 0;text-align:center;font-size:14px;font-weight:600;color:#142457}
+.nxph .det .btn{display:block;margin:14px auto 0;width:232px;padding:13px 0;border-radius:22px;
+  background:#4256F9;text-align:center;font-size:13.5px;font-weight:400;color:#fff}
+.nxph .det .bar{background:#142457}
+@media (prefers-reduced-motion:reduce){
+  .nxph .alert,.nxph .det,.nxph .off{transition:none}
+  #p-ai.alr .nxph .alert::before,#p-ai.tp .nxph .tapr{animation:none}
+}
+
 </style>
 </head>
 <body>
@@ -2770,7 +2841,7 @@ body:has(#p-ai.ph) .bcta{z-index:30}
 <g class="bars"><g class="bar" style="--i:0"><clipPath id="duc0"><rect x="150" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc0)"><rect class="sg g" x="150" y="507.9" width="40" height="52.1"/><rect class="sg n" x="150" y="370.6" width="40" height="137.3"/><rect class="sg b" x="150" y="329.6" width="40" height="41.0"/><rect class="sg l" x="150" y="150.0" width="40" height="179.6"/></g><rect class="bo" pathLength="1" x="150" y="150" width="40" height="410" rx="20.0"/></g><g class="bar" style="--i:1"><clipPath id="duc1"><rect x="254" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc1)"><rect class="sg g" x="254" y="428.8" width="40" height="131.2"/><rect class="sg n" x="254" y="325.1" width="40" height="103.7"/><rect class="sg b" x="254" y="206.2" width="40" height="118.9"/><rect class="sg l" x="254" y="150.0" width="40" height="56.2"/></g><rect class="bo" pathLength="1" x="254" y="150" width="40" height="410" rx="20.0"/></g><g class="bar" style="--i:2"><clipPath id="duc2"><rect x="358" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc2)"><rect class="sg g" x="358" y="370.6" width="40" height="189.4"/><rect class="sg n" x="358" y="251.7" width="40" height="118.9"/><rect class="sg b" x="358" y="206.6" width="40" height="45.1"/><rect class="sg l" x="358" y="150.0" width="40" height="56.6"/></g><rect class="bo" pathLength="1" x="358" y="150" width="40" height="410" rx="20.0"/></g><g class="bar" style="--i:3"><clipPath id="duc3"><rect x="462" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc3)"><rect class="sg g" x="462" y="428.8" width="40" height="131.2"/><rect class="sg n" x="462" y="325.1" width="40" height="103.7"/><rect class="sg b" x="462" y="150.0" width="40" height="175.1"/></g><rect class="bo" pathLength="1" x="462" y="150" width="40" height="410" rx="20.0"/></g><g class="bar" style="--i:4"><clipPath id="duc4"><rect x="566" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc4)"><rect class="sg g" x="566" y="324.7" width="40" height="235.3"/><rect class="sg b" x="566" y="150.0" width="40" height="174.7"/></g><rect class="bo" pathLength="1" x="566" y="150" width="40" height="410" rx="20.0"/></g><g class="bar" style="--i:5"><clipPath id="duc5"><rect x="670" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc5)"><rect class="sg g" x="670" y="428.8" width="40" height="131.2"/><rect class="sg n" x="670" y="325.1" width="40" height="103.7"/><rect class="sg b" x="670" y="206.2" width="40" height="118.9"/><rect class="sg l" x="670" y="150.0" width="40" height="56.2"/></g><rect class="bo" pathLength="1" x="670" y="150" width="40" height="410" rx="20.0"/></g><g class="bar" style="--i:6"><clipPath id="duc6"><rect x="774" y="150" width="40" height="410" rx="20.0"/></clipPath><g clip-path="url(#duc6)"><rect class="sg n" x="774" y="324.7" width="40" height="235.3"/><rect class="sg b" x="774" y="309.1" width="40" height="15.6"/><rect class="sg l" x="774" y="150.0" width="40" height="159.1"/></g><rect class="bo" pathLength="1" x="774" y="150" width="40" height="410" rx="20.0"/></g></g><text class="dl" style="--i:0" x="170.0" y="612" text-anchor="middle" data-t="dud0">x</text><text class="dl" style="--i:1" x="274.0" y="612" text-anchor="middle" data-t="dud1">x</text><text class="dl" style="--i:2" x="378.0" y="612" text-anchor="middle" data-t="dud2">x</text><text class="dl" style="--i:3" x="482.0" y="612" text-anchor="middle" data-t="dud3">x</text><text class="dl" style="--i:4" x="586.0" y="612" text-anchor="middle" data-t="dud4">x</text><text class="dl" style="--i:5" x="690.0" y="612" text-anchor="middle" data-t="dud5">x</text><text class="dl" style="--i:6" x="794.0" y="612" text-anchor="middle" data-t="dud6">x</text>
 <g class="lg2" style="--i:0"><circle class="ld g" cx="150" cy="645" r="10"/><text class="lt" x="178" y="655" data-t="dul0">x</text></g><g class="lg2" style="--i:1"><circle class="ld n" cx="500" cy="645" r="10"/><text class="lt" x="528" y="655" data-t="dul1">x</text></g><g class="lg2" style="--i:2"><circle class="ld b" cx="150" cy="707" r="10"/><text class="lt" x="178" y="717" data-t="dul2">x</text></g><g class="lg2" style="--i:3"><circle class="ld l" cx="500" cy="707" r="10"/><text class="lt" x="528" y="717" data-t="dul3">x</text></g>
 <g class="ins2"><rect x="70" y="700" width="780" height="0" rx="0"/></g>
-</svg></div><div class="aiph" aria-hidden="true"><div class="aiph-f"><iframe id="aiphf" title="eSAT" src="about:blank" scrolling="no"></iframe></div></div>
+</svg></div><div class="aiph" aria-hidden="true"><div class="aiph-f"><div class="nxph" id="nxph"><div class="scr"><div class="hora">9:30</div><div class="alert"><div class="arow"><i class="atile"></i><span class="aname">MANUSA eSAT</span><span class="anow">now</span></div><span class="apill">PREDICTIVE ALERT</span><p class="atit">Floor guide wear detected</p><p class="acos">On your Manusa Nexus door.<br>Tap to see the diagnosis.</p></div><i class="tapr"></i><div class="det"><img class="ph" src="img/diag-head.jpg" alt="" loading="lazy" decoding="async"><div class="card"><span class="badge">n&ordm; 24</span><h4>Floor guide wear</h4><dl><dt>CATEGORISATION</dt><dd>Predictive</dd><dt>POSSIBLE CAUSE</dt><dd>Expected wear considering the equipment&rsquo;s duty cycles.</dd><dt>POSSIBLE CONSEQUENCES</dt><dd>Increased door noise and possible false obstacle detections.</dd><dt>HOW TO FIX IT</dt><dd>Replace the guides. Authorised technical service required.</dd></dl><div class="foot"><div class="rule"></div><p class="help">Need help?</p><span class="btn">Get help from mIA</span></div></div><i class="bar"></i></div><div class="off"></div></div><i class="notch"></i><i class="bar"></i></div></div></div>
   </section>
 
   <button type="button" class="bcta"><svg class="ms" viewBox="0 -960 960 960" aria-hidden="true"><path d="M471.54-146.54q6.92 0 14.77-3.08 7.84-3.07 12.61-8.23l326.62-327.23q14.15-14.15 21.81-30.65 7.65-16.5 7.65-35.04t-7.65-36.5q-7.66-17.96-21.81-32.12l-167.31-167.3q-14.15-14.16-30.96-21.23-16.81-7.08-35.35-7.08-18.54 0-35.23 7.08-16.69 7.07-30.46 21.23l-28 28L577.31-679q11.84 12.46 20.5 29.42 8.65 16.97 8.65 36.27 0 33.77-25.27 58.54Q555.92-530 522.54-530q-21.54 0-36.69-6.35-15.16-6.34-28-18.8l-65.31-65.7q-3.46-3.46-8.85-3.46-5.38 0-8.84 3.46L205.39-451.39q-5.77 5.77-8.54 13.01-2.77 7.23-2.77 14.38 0 14.92 9.46 24.19 9.46 9.27 24 9.27 7.54 0 14.77-3.58 7.23-3.57 12-8.34l117-117q6.69-6.69 15.81-6.89 9.11-.19 16.19 6.89 7.07 7.08 7.07 16t-7.07 16l-116.39 116q-5.77 6.15-8.54 13.5-2.76 7.34-2.76 14.88 0 13.54 9.96 23.5t23.5 9.96q7.54 0 14.77-3.07 7.23-3.08 12-8.23l121.61-121.62q6.69-6.69 15.81-6.88 9.12-.2 16.19 6.88 7.08 7.08 7.08 16t-7.08 16l-121 120.62q-4.77 5.15-8.04 13-3.27 7.84-3.27 15.38 0 13.54 9.97 23.5 9.96 9.96 23.5 9.96 7.53 0 14.26-2.77 6.74-2.77 12.51-8.54L539-361q6.69-6.69 15.81-6.89 9.11-.19 16.19 6.89 7.08 7.08 7.08 16T571-329L449.38-207.39q-5.77 5.77-8.53 13.5-2.77 7.74-2.77 14.27 0 15.16 9.34 24.12 9.35 8.96 24.12 8.96Zm0 45.38q-31.08 0-54.39-23.34-23.3-23.35-24.46-58.19-34-1.93-56.8-23.77-22.81-21.85-24.74-57.77-35.53-2.31-57.46-24.66-21.92-22.34-23.46-56.88-34.69-1.92-58.11-23.46-23.43-21.54-23.43-55.39 0-15.84 6.12-31.69 6.11-15.84 17.96-27.69l170.85-170.46q16.23-16.62 40.07-16.62 23.85 0 40.46 16.62L485.61-593q7.62 7.62 17.5 12.31Q513-576 523.15-576q14.16 0 26.04-11.69 11.89-11.69 11.89-26.23 0-7.93-4.08-16.19-4.08-8.27-11.69-16.27L405-786.69q-14.15-14.16-31.15-21.23-17-7.08-35.54-7.08t-34.85 7.08q-16.31 7.07-30.46 21.23l-139.31 139.3q-22.3 21.93-27 53.31-4.69 31.39 8.23 59.7 4.23 8.3.77 17.3-3.46 9-11.38 13.23-8.31 4.23-17.81.77-9.5-3.46-13.73-11.77-17.38-43.46-11.35-87.38 6.04-43.92 40.27-78.15L240-818.69q20.85-20.85 46.35-30.96 25.5-10.12 52.96-10.12t52.46 10.12q25 10.11 45.84 30.96l28.01 28 28-28q20.84-20.85 46.15-30.96 25.31-10.12 52.77-10.12 27.46 0 52.65 10.12 25.19 10.11 46.04 30.96l166.31 166.31q20.84 20.84 31.84 47.5 11 26.65 11 54.11t-11 52.46q-11 25-31.84 45.85L530.92-125.85q-12.23 12.62-27.38 18.66-15.16 6.03-32 6.03ZM359.92-623.31Z"/></svg><span data-t="cta">Book a meeting</span></button>
@@ -2895,14 +2966,21 @@ function aiTrack(){ const v=$("#aiv"), o=$("#aitrk"), P=$("#p-ai"); if(!v||!o) r
         const hw=70+190*S.s; sc.style.clipPath=`polygon(590px 798px,${S.x+hw}px ${S.y}px,${S.x-hw}px ${S.y}px)`; sc.style.setProperty("--k",(.45+.55*S.s).toFixed(3)); } }
     requestAnimationFrame(loop); };
   requestAnimationFrame(loop); }
-function aiPh(on){ const fr=document.getElementById("aiphf"); if(!fr) return; clearTimeout(window.__aiphT); const P=document.getElementById("p-ai");
-  if(on){ if(fr.dataset.on!=="1"){ fr.dataset.on="1";
-      fr.srcdoc=dec(APPS[3]).replace("</head>",APPCSS+"<style>body{background:transparent!important}.stage{justify-content:flex-start!important;padding-top:6px}</style></head>")
-        .replace("window.__D = D;","window.__D = D; window.__SEG=[8.75,WORDS.filter(w=>w.b===0).pop().t+.05]; t=8.75;")
-        .replace("render(t); ui();\n  requestAnimationFrame(frame);","if(window.__SEG){ if(t<__SEG[0]) t=__SEG[0]; if(t>__SEG[1]) t=__SEG[0]; render(Math.min(t,__SEG[1])); } else render(t); ui();\n  requestAnimationFrame(frame);"); }
-    clearInterval(window.__aiphP); window.__aiphP=setInterval(()=>{ let st=null; try{ st=fr.contentWindow.__state&&fr.contentWindow.__state(); }catch(e){}
-      if(!P.classList.contains("ph")){ clearInterval(window.__aiphP); P.classList.remove("chat"); return; } if(st) P.classList.toggle("chat", st.t>16.2); },150); }
-  else { clearInterval(window.__aiphP); P.classList.remove("chat"); window.__aiphT=setTimeout(()=>{ fr.dataset.on="0"; fr.srcdoc=""; },1400); } }
+function aiPh(on){ const P=document.getElementById("p-ai"); if(!P) return;
+  const S=["lit","alr","tp","dg"];
+  const clear=()=>{ (window.__aiphT||[]).forEach(clearTimeout); window.__aiphT=[]; };
+  const at=(ms,fn)=>{ window.__aiphT.push(setTimeout(fn,ms)); };
+  clear();
+  if(!on){ S.forEach(c=>P.classList.remove(c)); P.classList.remove("chat"); return; }
+  const cycle=()=>{
+    S.forEach(c=>P.classList.remove(c));
+    at(420,  ()=>P.classList.add("lit"));   /* la pantalla s'encen quan hi arriben les ones */
+    at(1000, ()=>P.classList.add("alr"));   /* cau l'alerta */
+    at(4200, ()=>P.classList.add("tp"));    /* toc simulat */
+    at(4700, ()=>P.classList.add("dg"));    /* s'obre el diagnostic */
+    at(13000,()=>{ if(P.classList.contains("ph")) cycle(); });
+  };
+  cycle(); }
 const SXT=[[0,1042,1588],[3,1036,1584],[6,1024,1583],[9,1005,1581],[12,986,1576],[15,970,1563],[18,950,1540],[21,927,1511],[24,902,1491],[27,875,1484],[30,851,1474],[33,831,1458],[36,811,1440],[39,792,1429],[42,778,1425],[45,765,1416],[48,752,1401],[51,741,1388],[54,732,1381],[57,725,1375],[60,716,1367],[63,707,1359]];
 function secRun(on){ const P=document.getElementById("p-ai"), s=P&&P.querySelector(".aisx"), V=document.getElementById("aiv"); if(!s) return;
   (window.__sxT||[]).forEach(clearTimeout); window.__sxT=[]; cancelAnimationFrame(window.__sxR); cancelAnimationFrame(window.__sxW);
