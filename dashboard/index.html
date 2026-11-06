@@ -43,8 +43,7 @@ footer button:hover{background:var(--blue)}
 </footer>
 <script>
 const A=[
- {t:"Control y monitorización remota",f:"anim/01-control-remoto.html"},
- {t:"Acciones programadas",f:"anim/02-acciones-programadas.html"}
+ {t:"Control y monitorización remota",f:"anim/01-control-remoto.html"}
 ];
 const tabs=document.getElementById('tabs'),f=document.getElementById('f'),cur=document.getElementById('cur');
 A.forEach((a,i)=>{const b=document.createElement('button');b.role='tab';b.innerHTML=`<span class="n">${i+1}</span>${a.t}`;b.onclick=()=>go(i);tabs.appendChild(b)});
