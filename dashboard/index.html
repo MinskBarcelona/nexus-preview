@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Manusa GEST · Animaciones del dashboard</title>
+<title>Manusa GEST · Dashboard animations</title>
 <style>
 :root{--navy:#152764;--blue:#4256F9;--light:#6AABE4;--text:#353535;--bg:#EEF0F8}
 *{box-sizing:border-box}
@@ -43,7 +43,10 @@ footer button:hover{background:var(--blue)}
 </footer>
 <script>
 const A=[
- {t:"Control y monitorización remota",f:"anim/01-control-remoto.html"}
+ {t:"Remote real-time control and monitoring",f:"anim/01-remote-monitoring.html"},
+ {t:"Scheduled actions",f:"anim/02-scheduled-actions.html"},
+ {t:"User and permission management",f:"anim/03-user-management.html"},
+ {t:"Incident management and tracking",f:"anim/04-incident-management.html"}
 ];
 const tabs=document.getElementById('tabs'),f=document.getElementById('f'),cur=document.getElementById('cur');
 A.forEach((a,i)=>{const b=document.createElement('button');b.role='tab';b.innerHTML=`<span class="n">${i+1}</span>${a.t}`;b.onclick=()=>go(i);tabs.appendChild(b)});
