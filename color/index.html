@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landing Nexus · Propuesta de color</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#4256F9;--light:#6AABE4;--line:rgba(255,255,255,.1);--mute:#A9B0CF;--door:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;color:#fff;font-family:Raleway,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1400px 900px at 50% -10%,#0E1D63 0%,#08113F 40%,#040823 70%,#020414 100%) no-repeat,#020414}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+.top{display:flex;align-items:center;justify-content:space-between;padding:34px 0 0}
+.top img{height:28px;width:auto;display:block}
+.top span{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.hero{padding:70px 0 44px}
+h1{margin:0;font-weight:200;font-size:clamp(38px,5vw,64px);line-height:1.05;letter-spacing:-.02em}
+h1 strong{font-weight:600}
+.lead{margin:20px 0 0;font-size:18px;line-height:1.6;font-weight:300;color:#D7DBF0;max-width:680px}
+
+/* ---------- Menú (se queda fijo al bajar) ---------- */
+#sentinel{height:1px}
+.bar-ph{height:0}
+.bar{z-index:20;background:rgba(4,8,35,.82);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bar.stuck{position:fixed;top:0;left:0;right:0;box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.bar .in{max-width:1240px;margin:0 auto;padding:12px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
+.secnav{display:flex;flex-wrap:wrap;gap:2px}
+.secnav a{color:#D7DBF0;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:10px}
+.secnav a:hover{background:rgba(255,255,255,.07)}
+.secnav a.on{color:#fff;background:rgba(66,86,249,.28)}
+.ctrl{margin-left:auto;display:flex;flex-wrap:wrap;gap:10px}
+.seg{display:flex;gap:4px;padding:4px;border-radius:13px;background:rgba(255,255,255,.07)}
+.seg button{all:unset;cursor:pointer;padding:8px 14px;border-radius:9px;font-size:14px;color:#D7DBF0}
+.seg button.on{background:var(--blue);color:#fff}
+
+/* ---------- Secciones ---------- */
+.sec{padding:56px 0 8px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+.sec:last-of-type{border-bottom:0}
+.sec header{display:flex;align-items:baseline;gap:16px;margin:0 0 24px}
+.sec .num{font-size:14px;color:var(--light);letter-spacing:.14em}
+.sec h3{margin:0;font-size:28px;font-weight:300}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:46px}
+.shot{margin:0}
+.frame{border-radius:30px;padding:10px;background:linear-gradient(160deg,#2a2e45,#0c0f22);
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.08);cursor:zoom-in;transition:transform .6s var(--door)}
+.frame:hover{transform:translateY(-6px)}
+.frame img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:22px}
+.shot.v-b .frame{background:linear-gradient(160deg,#4256F9,#142457)}
+.shot figcaption{margin-top:14px;font-size:14px;color:var(--mute)}
+.shot figcaption b{color:#fff;font-weight:600;font-size:15px}
+body.big .trio{grid-template-columns:minmax(0,500px);justify-content:center}
+body.big .shot{display:none}
+body.big.p-cur .v-cur,body.big.p-a .v-a,body.big.p-b .v-b{display:block}
+
+.foot{padding:40px 0 70px;font-size:13px;color:rgba(169,176,207,.75)}
+
+/* ---------- Visor ---------- */
+.lb{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;gap:30px;padding:24px;background:rgba(2,4,20,.94)}
+.lb.on{display:flex}
+.lb img{max-height:88vh;max-width:min(90vw,520px);border-radius:22px}
+.lb .side{display:flex;flex-direction:column;gap:12px;min-width:210px}
+.lb .side h5{margin:0 0 6px;font-size:22px;font-weight:300}
+.lb .side button{all:unset;cursor:pointer;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.07);font-size:14px}
+.lb .side button.on{background:var(--blue)}
+.lb .side p{margin:8px 0 0;font-size:12px;color:var(--mute)}
+.lb .x{position:absolute;top:22px;right:26px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
+  display:grid;place-items:center;cursor:pointer;font-size:22px}
+
+@media (max-width:900px){
+  .wrap{padding:0 20px}.bar .in{padding:10px 20px}
+  .ctrl{margin-left:0}
+  .trio{grid-template-columns:repeat(3,72vw);overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 36px}
+  .shot{scroll-snap-align:center}
+  .lb{flex-direction:column}.lb .side{flex-direction:row;flex-wrap:wrap;justify-content:center;min-width:0}.lb .side h5,.lb .side p{display:none}
+}
+</style>
+</head>
+<body class="p-b">
+<div class="wrap">
+  <div class="top"><img src="logo.png" alt="Manusa"><span>Nexus · BAU 2027</span></div>
+  <section class="hero">
+    <h1>Landing Nexus · <strong>propuesta de color</strong></h1>
+    <p class="lead">Las cabeceras de la landing saldrán del vídeo Nexus, que tiene un fondo azul. Comparamos la landing actual con dos opciones: las imágenes del vídeo sobre el fondo grafito actual (A) o sobre el azul del propio vídeo (B).</p>
+  </section>
+</div>
+
+<div id="sentinel"></div>
+<div class="bar-ph" id="ph"></div>
+<div class="bar" id="bar"><div class="in">
+  <nav class="secnav" id="secnav"></nav>
+  <div class="ctrl">
+    <div class="seg" id="mode"><button data-m="all" class="on">Ver las tres</button><button data-m="big">Una a una</button></div>
+    <div class="seg" id="pick" hidden><button data-v="cur">Actual</button><button data-v="a">Opción A</button><button data-v="b" class="on">Opción B</button></div>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <main id="secs"></main>
+  <p class="foot">Las imágenes son fotogramas provisionales del vídeo: en la versión final cada cabecera estará animada.</p>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <span class="x" id="lbx" aria-label="Cerrar">×</span>
+  <img id="lbi" alt="">
+  <div class="side">
+    <h5 id="lbt"></h5>
+    <button data-v="cur">Actual</button><button data-v="a">Opción A · grafito</button><button data-v="b">Opción B · azul</button>
+    <p>← → para cambiar de opción · Esc para cerrar</p>
+  </div>
+</div>
+
+<script>
+var S=[["home","Portada"],["tech","Technology"],["mod","Modular system"],["des","Design"],["inst","Installation"],["ai","AI features"]];
+var V=[["cur","Actual","Fondo grafito"],["a","Opción A","Vídeo sobre fondo grafito"],["b","Opción B","Vídeo sobre fondo azul"]];
+function src(k,v){return 'shots/'+k+'_'+(v==='cur'?'cur':v==='a'?'grey':'video')+'.jpg'}
+var secs=document.getElementById('secs'),nav=document.getElementById('secnav');
+S.forEach(function(s,i){
+  var el=document.createElement('section');el.className='sec';el.id='s-'+s[0];
+  var h='<header><span class="num">0'+(i+1)+'</span><h3>'+s[1]+'</h3></header><div class="trio">';
+  V.forEach(function(v){h+='<figure class="shot v-'+v[0]+'"><div class="frame" data-k="'+s[0]+'" data-v="'+v[0]+'"><img loading="lazy" src="'+src(s[0],v[0])+'" alt="'+s[1]+' · '+v[1]+'"></div><figcaption><b>'+v[1]+'</b> · '+v[2]+'</figcaption></figure>';});
+  el.innerHTML=h+'</div>';secs.appendChild(el);
+  var a=document.createElement('a');a.href='#s-'+s[0];a.textContent=s[1];a.dataset.k=s[0];nav.appendChild(a);
+});
+nav.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();
+  document.getElementById('s-'+a.dataset.k).scrollIntoView({behavior:'smooth'});});
+
+/* menú fijo al pasar la intro */
+var bar=document.getElementById('bar'),ph=document.getElementById('ph');
+new IntersectionObserver(function(en){var st=!en[0].isIntersecting&&en[0].boundingClientRect.top<0;
+  ph.style.height=st?bar.offsetHeight+'px':'0';bar.classList.toggle('stuck',st);}).observe(document.getElementById('sentinel'));
+/* sección activa en el menú */
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){var k=x.target.id.slice(2);
+  nav.querySelectorAll('a').forEach(function(a){a.classList.toggle('on',a.dataset.k===k)});}})},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('.sec').forEach(function(s){io.observe(s)});
+
+function seg(id,fn){var e=document.getElementById(id);e.addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;
+  e.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});fn(b.dataset);});}
+seg('mode',function(d){var big=d.m==='big';document.body.classList.toggle('big',big);document.getElementById('pick').hidden=!big;});
+seg('pick',function(d){document.body.classList.remove('p-cur','p-a','p-b');document.body.classList.add('p-'+d.v);});
+
+/* visor */
+var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbt=document.getElementById('lbt'),ck=null,cv=null;
+function show(k,v){ck=k;cv=v;lbi.src=src(k,v);lbt.textContent=S.filter(function(x){return x[0]===k})[0][1];
+  lb.querySelectorAll('.side button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});lb.classList.add('on');}
+function step(d){var o=['cur','a','b'];show(ck,o[(o.indexOf(cv)+d+3)%3]);}
+function hide(){lb.classList.remove('on');ck=null}
+secs.addEventListener('click',function(e){var f=e.target.closest('.frame');if(f)show(f.dataset.k,f.dataset.v);});
+lb.addEventListener('click',function(e){var b=e.target.closest('.side button');if(b){show(ck,b.dataset.v);return}
+  if(e.target===lbi){step(1);return} if(e.target===lb||e.target.id==='lbx')hide();});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')hide();else if(e.key==='ArrowRight'){e.preventDefault();step(1)}else if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+</script>
+</body>
+</html>
