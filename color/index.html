@@ -117,7 +117,7 @@ body.big.p-cur .v-cur,body.big.p-a .v-a,body.big.p-b .v-b{display:block}
 <script>
 var S=[["home","Portada"],["tech","Technology"],["mod","Modular system"],["des","Design"],["inst","Installation"],["ai","AI features"]];
 var V=[["cur","Actual","Fondo grafito"],["a","Opción A","Vídeo sobre fondo grafito"],["b","Opción B","Vídeo sobre fondo azul"]];
-function src(k,v){return 'shots/'+k+'_'+(v==='cur'?'cur':v==='a'?'grey':'video')+'.jpg'}
+function src(k,v){return 'shots/'+k+'_'+(v==='cur'?'cur':v==='a'?'grey':'video')+'.jpg?v=3'}
 var secs=document.getElementById('secs'),nav=document.getElementById('secnav');
 S.forEach(function(s,i){
   var el=document.createElement('section');el.className='sec';el.id='s-'+s[0];
